@@ -54,7 +54,7 @@ export default function Textform(props) {
             <button className='mx-2 btn btn-primary' onClick={remove_extra_spaces}>Remove extra spaces</button>
             <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button>
             <button className='mx-2 btn btn-primary' onClick={reverse_text}>Reverse text</button>
-            <p className='justify-left text-light bg-dark p-2 my-3'>{textarea.split(' ').length} and {textarea.length} characters</p>
+            <p className='justify-left text-light bg-dark p-3 my-3'>{textarea.split(' ').length} and {textarea.length} characters</p>
             <hr/>
             <h2>Preview</h2>
             <p>{textarea}</p>
