@@ -14,6 +14,8 @@ get project from git to your local machine
 
 ### `git clone <repository URL>`
 
+To start project on local server
+
 ### `npm start`
 
 Runs the app in the development mode.\
