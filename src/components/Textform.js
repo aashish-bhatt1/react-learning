@@ -8,10 +8,12 @@ export default function Textform(props) {
   }
   const onDownFunction = ()=> {
     settextarea(textarea.toLowerCase());
+    props.alert_msg('Text has been converted to lowercase!', 'success');
   }
   const onClickFunction = ()=>{
     let upperText = textarea.toUpperCase();
     settextarea(upperText)
+    props.alert_msg('Text has been converted to uppercase!', 'success')
   }
 
   // Copy text area text
@@ -19,12 +21,14 @@ export default function Textform(props) {
     var selected_text = document.getElementById('first_app');
     selected_text.select();
     navigator.clipboard.writeText(selected_text.value);
+    props.alert_msg('Text copied!', 'success');
   }
 
   // Remove extra spaces
   const remove_extra_spaces = ()=>{
     let remove_text = textarea.split(/[ ]+/);
     settextarea(remove_text.join(" "))
+    props.alert_msg('Extra spaces has been removed from text!', 'success');
   }
 
   // it will speak whatever is in textarea
@@ -46,7 +50,7 @@ export default function Textform(props) {
     <div className="container">
         <div className="mb-3 mt-4 text-center" style={{ backgroundColor: props.mode === 'dark'? '#000f56' : '#ffffff' }}>
             <h1 style={{ backgroundColor: props.mode === 'dark'? '#000f56' : '#ffffff', color: props.mode === 'dark'? '#ffffff' : '#000f56' }}>{props.heading} - {text}</h1>
-            <label htmlFor="first_app" className="form-label">Example textarea</label>
+            <label htmlFor="first_app" className="form-label" style={{ color: props.mode === 'dark'? '#ffffff' : '#000f56' }}>Example textarea</label>
             <textarea className="form-control mb-4" value={textarea} onChange={onChangeEvent} style={{ backgroundColor: props.mode === 'dark'? '#000f56' : '#ffffff', color: props.mode === 'dark'? '#ffffff' : '#000f56' }} placeholder={text} id="first_app" rows="8"></textarea>
             <button className="btn btn-primary mx-2" onClick={onClickFunction}>Convert to uppercase</button>
             <button className='mx-2 btn btn-primary' onClick={onDownFunction}>Convert to lowercase</button>
