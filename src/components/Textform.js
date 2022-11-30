@@ -38,6 +38,10 @@ export default function Textform(props) {
     window.speechSynthesis.speak(msg);
   }
 
+  const clear_text = () => {
+    settextarea('');
+  }
+
   // Reverse the text
   const reverse_text = () => {
     let newText = textarea.split(' ').reverse().join(' ');
@@ -58,6 +62,7 @@ export default function Textform(props) {
             <button className='mx-2 btn btn-primary' onClick={remove_extra_spaces}>Remove extra spaces</button>
             <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button>
             <button className='mx-2 btn btn-primary' onClick={reverse_text}>Reverse text</button>
+            <button className='mx-2 btn btn-primary' onClick={clear_text}>Clear text</button>
             <p className='justify-left text-light bg-dark p-3 my-3'>{textarea.split(' ').length} and {textarea.length} characters</p>
             <hr/>
             <h2>Preview</h2>
