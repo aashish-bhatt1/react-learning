@@ -4,12 +4,7 @@ import Textform from './components/Textform';
 import Alert from './components/Alert';
 import { useState } from 'react';
 import About from './components/About';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 
 function App() {
@@ -39,20 +34,18 @@ function App() {
 }
   return (
     <>
-    <Router>
-      <div>
+    <BrowserRouter>
+
     <Navbar mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
-      <Switch>
-        <Route path="/home" >
-          <Textform alert_msg={showAlert} heading="This is my first react page." mode={mode} />
+      <Routes>
+        <Route path="/" element={<Textform alert_msg={showAlert} heading="This is my first react page." mode={mode} />}>
         </Route>
-        <Route path="/about" >
-          <About />
+        <Route path="/about" element={<About />}>
+          
         </Route>
-      </Switch>
-      </div>
-    </Router>
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }
