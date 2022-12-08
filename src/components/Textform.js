@@ -56,13 +56,13 @@ export default function Textform(props) {
             <h1 style={{ backgroundColor: props.mode === 'dark'? '#000f56' : '#ffffff', color: props.mode === 'dark'? '#ffffff' : '#000f56' }}>{props.heading} - {text}</h1>
             <label htmlFor="first_app" className="form-label" style={{ color: props.mode === 'dark'? '#ffffff' : '#000f56' }}>Example textarea</label>
             <textarea className="form-control mb-4" value={textarea} onChange={onChangeEvent} style={{ backgroundColor: props.mode === 'dark'? '#000f56' : '#ffffff', color: props.mode === 'dark'? '#ffffff' : '#000f56' }} placeholder={text} id="first_app" rows="8"></textarea>
-            <button className="btn btn-primary mx-2" onClick={onClickFunction}>Convert to uppercase</button>
-            <button className='mx-2 btn btn-primary' onClick={onDownFunction}>Convert to lowercase</button>
-            <button className='mx-2 btn btn-primary' onClick={copy_text}>Copy text</button>
-            <button className='mx-2 btn btn-primary' onClick={remove_extra_spaces}>Remove extra spaces</button>
-            <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button>
-            <button className='mx-2 btn btn-primary' onClick={reverse_text}>Reverse text</button>
-            <button className='mx-2 btn btn-primary' onClick={clear_text}>Clear text</button>
+            <button disabled={textarea.length === 0} className="btn btn-primary mx-2" onClick={onClickFunction}>Convert to uppercase</button>
+            <button disabled={textarea.length === 0} className='mx-2 btn btn-primary' onClick={onDownFunction}>Convert to lowercase</button>
+            <button disabled={textarea.length === 0} className='mx-2 btn btn-primary' onClick={copy_text}>Copy text</button>
+            <button disabled={textarea.length === 0} className='mx-2 btn btn-primary' onClick={remove_extra_spaces}>Remove extra spaces</button>
+            <button disabled={textarea.length === 0} type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button>
+            <button disabled={textarea.length === 0} className='mx-2 btn btn-primary' onClick={reverse_text}>Reverse text</button>
+            <button disabled={textarea.length === 0} className='mx-2 btn btn-primary' onClick={clear_text}>Clear text</button>
             <p className='justify-left text-light bg-dark p-3 my-3'>{textarea.split(' ').length} and {textarea.length} characters</p>
             <hr/>
             <h2>Preview</h2>
