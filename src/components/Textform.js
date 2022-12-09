@@ -18,9 +18,7 @@ export default function Textform(props) {
 
   // Copy text area text
   const copy_text = ()=>{
-    var selected_text = document.getElementById('first_app');
-    selected_text.select();
-    navigator.clipboard.writeText(selected_text.value);
+    navigator.clipboard.writeText(textarea);
     props.alert_msg('Text copied!', 'success');
   }
 
@@ -44,7 +42,7 @@ export default function Textform(props) {
 
   // Reverse the text
   const reverse_text = () => {
-    let newText = textarea.split(' ').reverse().join(' ');
+    let newText = textarea.split('/\s/').reverse().join(' ');
     settextarea(newText);
   };
   
